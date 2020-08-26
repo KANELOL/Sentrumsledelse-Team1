@@ -1,52 +1,38 @@
 var $ = function(id) {return document.getElementById(id);};
 //helper variable for using document.getElementById easily
 
-// ignore this
-var loginStuff = {
-    username: null,
-    password: null
-}
-
-// Lagrer Brukernavn og passord fra index.html form.
-function storeInfo() {
-    loginStuff.username = $("username-field").value;
-    loginStuff.password = $("password-field").value;
-}
-
-// Modell For Bedrifter
-var profiles = {
-    exampleBusiness: {
-        name: "Example Business",
-        address: "Examplestreet 2",
-        industry: "Electronics",
-        id: 0001,
-        weight: "???",
-        logo: "some picture"
+const model = {
+    current: {
+        user: "admin",
+        page: "login"
     },
-    exampleBusiness2: {
-        name: "Another Business",
-        address: "Some Address",
-        industry: "Food",
-        id: 0002,
-        weight: "???",
-        logo: "some picture"
-    }
-};
+    
+    // ignore this
+    loginsStuff: {
+        username: null,
+        password: null
+    },
 
-// The template for different business profiles
-class profileTemplate {
-    constructor (name, address, industry, id, weight, logo)
-    {
-        this.name = name;
-        this.address = address;
-        this.industry = industry;
-        this.id = id;
-        this.weight = weight;
-        this.logo = logo;
+    // Modell For Bedrifter
+    profiles: {
+        exampleBusiness: {
+            name: "Example Business",
+            address: "Examplestreet 2",
+            industry: "Electronics",
+            id: 0001,
+            weight: "???",
+            logo: "some picture", 
+        },
+        exampleBusiness2: {
+            name: "Another Business",
+            address: "Some Address",
+            industry: "Food",
+            id: 0002,
+            weight: "???",
+            logo: "some picture"
+        }
     }
-    //can add more shit here
 
-}
 
 // example of a new profileTemplate:
 // var newProfile = new profileTemplate(name, address, industry, id, weight, logo);

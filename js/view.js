@@ -1,7 +1,21 @@
-//var $ = function(id) {return document.getElementById(id);};
+var $ = function(id) {return document.getElementById(id);};
 //helper variable for using document.getElementById easily
-// login page stuff
 
 
-// what to show after successful login
-         //Legger inn bedriftens info til en eller annen div kalt "quickStats"
+function updateView() {
+    const page = model.current.page;
+    if (page === 'login') {
+        
+    }
+    else if (page === 'vote') updateViewVotePage();
+}
+
+//Endrer modellen app.currenPage og oppdaterer View.
+function changePage(page) {
+    model.current.page = page;
+    updateView();
+}
+function update() {
+    loadProfiles();
+
+}
