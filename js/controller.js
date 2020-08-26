@@ -2,13 +2,10 @@ var $ = function(id) {return document.getElementById(id);};
 //helper variable for using document.getElementById easily
 
 function passCheck() {
-    if ($("username-field").value === "admin" && $("password-field").value === "pass") {
-        window.location.href = "overview.html";
+    if ($("username-field").value === model.loginStuff.username && $("password-field").value === model.loginStuff.username) {
+        model.current.page = "overview"
+        changePage("overviefw")
     }
-}
-
-function pageSwitcher() {
-
 }
 
 // The template for different business profiles

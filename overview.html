@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/view.js"></script>
-    <script src="js/model.js"></script>
-    <script src="js/controller.js"></script>
-    <script src="js/profilesLoader.js"></script>
+    <script defer src="js/model.js"></script>
+    <script defer src="js/controller.js"></script>
+    <script defer src="js/profilesLoader.js"></script>
+    <script defer src="js/profilesChanger.js"></script>
+    <script defer src="js/view.js"></script>
     <title>Overviewpage</title>
 </head>
 <body>
     <h1>Welcome to the actual site</h1>
     <div id="quickStats"></div>
+    <div>
+    </div>
     <button onclick="loadProfiles()">Load Profiles</button>
-    <button onclick="window.location.href='login.html'">Logg ut</button>
+    <button onclick="changePage('login')">Logg ut</button>
+    <button>Lag Ny Profil</button>
 </body>
 </html>
