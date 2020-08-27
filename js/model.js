@@ -1,7 +1,10 @@
 var $ = function(id) {return document.getElementById(id);};
 //helper variable for using document.getElementById easily
+//const outputDiv = document.getElementById(id);
+
 
 const model = {
+    outputDiv: $('quickStats'),
     current: {
         weeksToSum: 4,
         user: "admin",
@@ -13,7 +16,15 @@ const model = {
         username: "",
         password: ""
     },
-
+    inputs:
+        {name: "",
+        address: "",
+        industry: "",
+        id: "",
+        weight: "",
+        logo: "some picture",
+        income: []
+    },
     // Modell For Bedrifter
     profileStorage: [
         {name: "Super Store 300",

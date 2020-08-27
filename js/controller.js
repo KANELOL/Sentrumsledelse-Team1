@@ -3,8 +3,8 @@ var $ = function(id) {return document.getElementById(id);};
 
 function passCheck() {
     if ($("username-field").value === model.loginStuff.username && $("password-field").value === model.loginStuff.username) {
-        model.current.page = "overview"
-        changePage("overviefw")
+        model.current.page = "index"
+        changePage()
     }
 }
 

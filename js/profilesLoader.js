@@ -4,22 +4,25 @@ var $ = function(id) {return document.getElementById(id);};
 
 function loadProfiles(){
     let profiles = model.profileStorage;
-    const choosenWeeks = model.current.weeksToSum;
-    $('quickStats').innerHTML ='';
+    const chosenWeeks = model.current.weeksToSum;
+    model.outputDiv.innerHTML = ``;
     for (let profile of profiles) {
         const profileName = profile.name;
         const industry = profile.industry;
-        const date = profile.income[0].date;
-        const averageIncome = calcAverage(choosenWeeks,profile.income);
+        //const votesObj = currentPoll !== null ? currentPoll.votes : {}; // setter voteObj til votes i currentPoll, med mindre det ikke er noen der
+        //const date = profile.income[0].date;
+        const date = !profile.income ? profile.income[0].date : "";
+        const averageIncome = !profile.income ? calcAverage(chosenWeeks,profile.income):"";
         const profileID = profile.id;
-    
-        $('quickStats').innerHTML +=`<div id="${profile.id}">
+
+        model.outputDiv.innerHTML +=`<div id="${profile.id}">
         Butikknavn: ${profileName}<br>
-        Gjennomsnittlig inntekt siste ${choosenWeeks} uker: ${averageIncome}% <br>
+        Gjennomsnittlig inntekt siste ${chosenWeeks} uker: ${averageIncome}% <br>
         Forrige registrering: ${date}! <br>
         Bransje: ${industry} <br>
         <button onclick="checkProfile(${profileID})">Vis profil</button> <br>
         </div>
+        <div id="incomePercent">This is a test: ${averageIncome}</div>
         `;
     }
     

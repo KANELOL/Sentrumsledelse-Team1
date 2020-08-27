@@ -1,0 +1,18 @@
+
+.output {
+    color:black;
+}
+
+overviewGrid {
+}
+
+overviewName {
+
+}
+
+overviewGoodPercent {
+    background-color: rgb(212, 88, 88);
+}
+overviewBadPercent {
+    background-color: rgb(135, 238, 135);
+}
