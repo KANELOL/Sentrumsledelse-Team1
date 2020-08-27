@@ -11,9 +11,15 @@ function loadProfiles(){
         const industry = profile.industry;
         //const votesObj = currentPoll !== null ? currentPoll.votes : {}; // setter voteObj til votes i currentPoll, med mindre det ikke er noen der
         //const date = profile.income[0].date;
-        const date = !profile.income ? profile.income[0].date : "";
-        const averageIncome = !profile.income ? calcAverage(chosenWeeks,profile.income):"";
+        
+        const date = profile.income[0].date || "unknown";
+        
+        //(profile.income != null ? profile.income[0].date : "unknown");
+        
+        //date == true ? (date = "Ingen dato") : (date = date);
+        const averageIncome = calcAverage(chosenWeeks,profile.income);
         const profileID = profile.id;
+        // date ? date = date : date = null;
 
         model.outputDiv.innerHTML +=`<div id="${profile.id}">
         Butikknavn: ${profileName}<br>
@@ -22,20 +28,22 @@ function loadProfiles(){
         Bransje: ${industry} <br>
         <button onclick="checkProfile(${profileID})">Vis profil</button> <br>
         </div>
-        <div id="incomePercent">This is a test: ${averageIncome}</div>
+        <div id="incomePercent">This is a test: ${averageIncome}%</div>
         `;
     }
-    
-
 
     function calcAverage(weeks,income) {
         let sum = 0;
-        for (let i = 0; i < weeks; i++) {
-            sum += income[i].percent;
-        }   
-        return (sum/income.length).toFixed(2);
-    } 
-};
+        if (income.length > 0) {
+            for (let i = 0; i < weeks; i++) {
+                sum += income[i].percent;
+            }
+            return (sum/income.length).toFixed(2);
+        } else {
+            return "unkown";
+        } 
+        
+    }};
 //Egen side med bedrift navn og info
 
 
