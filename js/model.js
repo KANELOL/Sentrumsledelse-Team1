@@ -6,6 +6,7 @@ var $ = function(id) {return document.getElementById(id);};
 const model = {
     outputDiv: $('quickStats'),
     current: {
+        company: null,
         weeksToSum: 4,
         user: "admin",
         page: "login",
@@ -16,42 +17,28 @@ const model = {
         username: "",
         password: ""
     },
-    inputs:
-        {name: "",
+    inputs: {
+        name: "",
         address: "",
         industry: "",
-        id: "",
-        weight: "",
-        logo: "some picture",
-        income: []
-    },
-    // Modell For Bedrifter
-    profileStorage: [
+    },  
+     // Modell For Bedrifter
+    companies: [
         {name: "Super Store 300",
         address: "Examplestreet 2",
         industry: "Electronics",
         id: 0000,
         weight: "???",
-        logo: "some picture",
-        income: [
-            {percent: 21, date: "Uke 1", logDate: ""},
-            {percent: 25, date: "Uke 2", logDate: ""},
-            {percent: 23, date: "Uke 3", logDate: ""},
-            {percent: -54, date: "Uke 4", logDate: ""}
-        ]},
+        logo: "some picture"},
+        
         {name: "Another Business",
         address: "Some Address",
         industry: "Food",
         id: 0001,
         weight: "???",
-        logo: "some picture",
-        income: [
-            {percent: 13, date: "Uke 1", logDate: ""},
-            {percent: -51, date: "Uke 2", logDate: ""},
-            {percent: 131, date: "Uke 3", logDate: ""},
-            {percent: -0.3, date: "Uke 4", logDate: ""}
-        ]}
-    ]
+        logo: "some picture"},
+    ],
+    income: []
 }
 
 
@@ -66,3 +53,20 @@ const model = {
 
 
 // complete history of percentage increase/decrease per week goes here, somehow
+
+
+
+    // class profileTemplate {
+    //     constructor (name, address)
+    //     {
+    //         this.name = name;
+    //         this.address = address;
+    //     //     this.industry = industry;
+    //     //     this.id = id;
+    //     //     this.weight = weight;
+    //     //     this.logo = logo;
+    //     //     this.income = income;
+    //     }
+    // },
+
+    // exempel

@@ -3,7 +3,7 @@ var $ = function(id) {return document.getElementById(id);};
 //Funksjone som sorterer etter ID, eller annen info. Og hvor mange du vil se eller noe.
 
 function loadProfiles(){
-    let profiles = model.profileStorage;
+    let profiles = model.companies;
     const chosenWeeks = model.current.weeksToSum;
     model.outputDiv.innerHTML = ``;
     for (let profile of profiles) {
@@ -12,19 +12,19 @@ function loadProfiles(){
         //const votesObj = currentPoll !== null ? currentPoll.votes : {}; // setter voteObj til votes i currentPoll, med mindre det ikke er noen der
         //const date = profile.income[0].date;
         
-        const date = profile.income[0].date || "unknown";
+       //
         
         //(profile.income != null ? profile.income[0].date : "unknown");
         
         //date == true ? (date = "Ingen dato") : (date = date);
-        const averageIncome = calcAverage(chosenWeeks,profile.income);
+        const averageIncome = calcAverage(chosenWeeks,model.income);
         const profileID = profile.id;
         // date ? date = date : date = null;
 
         model.outputDiv.innerHTML +=`<div id="${profile.id}">
         Butikknavn: ${profileName}<br>
         Gjennomsnittlig inntekt siste ${chosenWeeks} uker: ${averageIncome}% <br>
-        Forrige registrering: ${date}! <br>
+        Forrige registrering: ${null}! <br>
         Bransje: ${industry} <br>
         <button onclick="checkProfile(${profileID})">Vis profil</button> <br>
         </div>

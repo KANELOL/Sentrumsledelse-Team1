@@ -5,42 +5,35 @@ var $ = function(id) {return document.getElementById(id);};
 //Først få opp side med inputs. Navn, Adresse, Industry.
 //Kunne legge in informasjon.
 //Pushe til profileStorage
+//Bruke type="date" til å sortere etter dato?
 
-function editProfile(id) {
-
-}
-
-function newProfile() { //Lag ny butikk.
-    model.outputDiv.innerHTML = `
-    Navn:<input type="Navn" value="${model.inputs.name}" oninput="model.inputs.name=this.value"
-    /><br>
-Adresse:
-<input 
-    type="Adresse" 
-    value="${model.inputs.address}"
-    oninput="model.inputs.address=this.value"
-/><br>
-Industri:
-<input 
-    type="Industri" 
-    value="${model.inputs.industry}"
-    oninput="model.inputs.industry=this.value"
-/><br>
+//View Funksjon med en liten dæsh controller.
+function newProfile() { // Lag ny butikk.
+    const com = "model.inputs";
+    $("quickStats").innerHTML = `
+    Navn: <input id="inputName" type="name" oninput="${com}.name = this.value"/><br>
+    Adresse: <input id="inputAddress" type="address" oninput="${com}.address = this.value"/><br>
+    Industri: <input id="inputIndustry" type="text" oninput="${com}.industry = this.value"/><br>
 <button onclick="pushProfile()" style="font-size: 100%">push Profile</button>
 `
 }
+//Controller Funksjon
 function pushProfile() {
-    const inputObj = model.inputs;
+    model.inputs.id = model.companies.length;
+    let cloneInputs = (JSON.parse(JSON.stringify(model.inputs)));
+    model.companies.push(cloneInputs);
 
-    model.profileStorage.push({
-        name: inputObj.name,
-        address: inputObj.address,
-        industry: inputObj.industry,
-        id: model.profileStorage.length,
-        weight: "???",
-        logo: "some picture",
-        income: [],
-    });
+    // const inputObj = model.inputs;
+    // model.companies.push({
+    
+    //     name: inputObj.name,
+    //     address: inputObj.address,
+    //     industry: inputObj.industry,
+    //     id: model.companies.length,
+    //     weight: "???",
+    //     logo: "some picture",
+    //     income: [],
+    // });
 }
     
 //     model.outputDiv.innerHTML = `Lag ny profil!

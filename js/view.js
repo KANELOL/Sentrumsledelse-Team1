@@ -1,8 +1,8 @@
 var $ = function(id) {return document.getElementById(id);};
 // helper variable for using document.getElementById easily
 
-function changePage(page) {
-    model.current.page = page;
+function changePage() {
+    const page = model.current.page;
     if (page === 'login') {
         window.location.href = "login.html";
     }
