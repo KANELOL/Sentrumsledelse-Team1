@@ -17,8 +17,9 @@ function loadProfiles(){
         //(profile.income != null ? profile.income[0].date : "unknown");
         
         //date == true ? (date = "Ingen dato") : (date = date);
-        const averageIncome = calcAverage(chosenWeeks,model.income);
         const profileID = profile.id;
+        const averageIncome = calcAverage(chosenWeeks,model.income[profileID].entries);
+
         // date ? date = date : date = null;
 
         model.outputDiv.innerHTML +=`<div id="${profile.id}">
@@ -32,13 +33,14 @@ function loadProfiles(){
         `;
     }
 
-    function calcAverage(weeks,income) {
+    function calcAverage(weeks,entries) {
         let sum = 0;
-        if (income.length > 0) {
-            for (let i = 0; i < weeks; i++) {
-                sum += income[i].percent;
+    
+        if (entries.length > 0) {
+            for (let i = 0; i < weeks && i < entries.length; i++) {
+                sum += entries[i].percent;
             }
-            return (sum/income.length).toFixed(2);
+            return (sum/entries.length).toFixed(2);
         } else {
             return "unkown";
         } 

@@ -20,7 +20,7 @@ const model = {
     inputs: {
         name: "",
         address: "",
-        industry: "",
+        industry: ""
     },  
      // Modell For Bedrifter
     companies: [
@@ -38,7 +38,25 @@ const model = {
         weight: "???",
         logo: "some picture"},
     ],
-    income: []
+    income: [
+        {
+            id: 0001,
+            entries: [
+                {percent: 45, date: "some date"},
+                {percent: 3, date: "some date"},
+                {percent: 234, date: "some date"}
+            ]
+        },
+
+        {
+            id: 0002,
+            entries: [
+                {percent: 13, date: "some date"},
+                {percent: 3, date: "some date"},
+                {percent: 35, date: "some date"}
+            ]
+        }
+    ]
 }
 
 

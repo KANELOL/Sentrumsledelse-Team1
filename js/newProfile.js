@@ -23,6 +23,13 @@ function pushProfile() {
     let cloneInputs = (JSON.parse(JSON.stringify(model.inputs)));
     model.companies.push(cloneInputs);
 
+    model.income.push(
+        {
+            id: model.inputs.id,
+            entries: []
+        })
+}
+
     // const inputObj = model.inputs;
     // model.companies.push({
     
@@ -34,7 +41,6 @@ function pushProfile() {
     //     logo: "some picture",
     //     income: [],
     // });
-}
     
 //     model.outputDiv.innerHTML = `Lag ny profil!
 //     <h1>${model.profileStorage[2]}</h1> <br>
