@@ -4,10 +4,11 @@ var $ = function(id) {return document.getElementById(id);};
 
 
 const model = {
-    outputDiv: $('quickStats'),
     current: {
         company: null,
         weeksToSum: 4,
+        fromDate: null,
+        toDate: null,
         user: "admin",
         page: "login",
         date: "99.99.99",
@@ -22,6 +23,7 @@ const model = {
         address: "",
         industry: ""
     },  
+    virus: "all you base is belong to us!",
      // Modell For Bedrifter
     companies: [
         {name: "Super Store 300",
@@ -39,23 +41,12 @@ const model = {
         logo: "some picture"},
     ],
     income: [
-        {
-            id: 0001,
-            entries: [
-                {percent: 45, date: "some date"},
-                {percent: 3, date: "some date"},
-                {percent: 234, date: "some date"}
-            ]
-        },
-
-        {
-            id: 0002,
-            entries: [
-                {percent: 13, date: "some date"},
-                {percent: 3, date: "some date"},
-                {percent: 35, date: "some date"}
-            ]
-        }
+        {percent: 45, id: 0001, date: "2020-09-30"},
+        {percent: 3, id: 0000, date: "2020-09-08"},
+        {percent: 234, id: 0001, date: "2020-09-16"},
+        {percent: 13, id: 0000, date: "2020-09-01"},
+        {percent: 3, id: 0001, date: "2020-09-23"},
+        {percent: 35, id: 0001, date: "2020-09-08"}
     ]
 }
 

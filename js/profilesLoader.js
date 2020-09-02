@@ -5,24 +5,22 @@ var $ = function(id) {return document.getElementById(id);};
 function loadProfiles(){
     let profiles = model.companies;
     const chosenWeeks = model.current.weeksToSum;
-    model.outputDiv.innerHTML = ``;
+    $("quickStats").innerHTML = ``;
     for (let profile of profiles) {
         const profileName = profile.name;
         const industry = profile.industry;
         //const votesObj = currentPoll !== null ? currentPoll.votes : {}; // setter voteObj til votes i currentPoll, med mindre det ikke er noen der
         //const date = profile.income[0].date;
         
-       //
-        
         //(profile.income != null ? profile.income[0].date : "unknown");
         
         //date == true ? (date = "Ingen dato") : (date = date);
         const profileID = profile.id;
-        const averageIncome = calcAverage(chosenWeeks,model.income[profileID].entries);
+        const averageIncome = calcAverage(chosenWeeks, model.income[profileID]);
 
         // date ? date = date : date = null;
 
-        model.outputDiv.innerHTML +=`<div id="${profile.id}">
+        $("quickStats").innerHTML +=`<div id="${profile.id}">
         Butikknavn: ${profileName}<br>
         Gjennomsnittlig inntekt siste ${chosenWeeks} uker: ${averageIncome}% <br>
         Forrige registrering: ${null}! <br>

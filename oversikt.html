@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script defer src="js/model.js" onload="oversiktFunc()"></script>
+        <script defer src="js/controller.js"></script>
+        <script defer src="js/profilesLoader.js"></script>
+        <script defer src="js/profilesChanger.js"></script>
+        <script defer src="js/view.js"></script>
+        <script defer src="js/newProfile.js"></script>
+        <link rel="stylesheet" href="noe.css">
+    </head>
+    <body>
+        
+        <div id="oversikt">
+            <table class="a" id="enId">
+                <tr>
+                    <th id="butikkNavn">Butikknavn:</th>
+                    <th id="sisteUker value=">Gjennomsnittlig inntekt  siste uker: </th>
+                    <th id="forReg">Forrige registrering: :</th>
+                    <th id="bransje">Bransje:
+                </tr>
+        </div>
+
+        <script>
+        
+        function oversiktFunc()
+            {
+                document.getElementById("weeksNumber").innerHTML = model.current.weeksToSum;
+                console.log(model.current.weeksToSum)
+
+                // const income = model.current.weeksToSum;
+                
+                document.getElementById("enId").innerHTML +=`
+                <tr>
+                    <td id="butikkNavn">Meny</td>
+                    <td id="sisteUker">500 000</td>
+                    <td id="forReg">4 uker siden</td>
+                    <td id="bransje">Cola</td>
+                </tr>
+                </table>`;
+            }
+
+
+        </script>
+    </body>
+</html>
