@@ -2,6 +2,7 @@ var $ = function(id) {return document.getElementById(id);};
 //helper variable for using document.getElementById easily
 //const outputDiv = document.getElementById(id);
 
+//https://meet.google.com/gpm-sfgd-sxt
 
 const model = {
     current: {
@@ -22,9 +23,8 @@ const model = {
         name: "",
         address: "",
         industry: ""
-    },  
-    virus: "all you base is belong to us!",
-     // Modell For Bedrifter
+    },
+    // Modell For Bedrifter
     companies: [
         {name: "Super Store 300",
         address: "Examplestreet 2",
@@ -79,3 +79,7 @@ const model = {
     // },
 
     // exempel
+
+
+// Jørn notat
+//

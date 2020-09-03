@@ -2,38 +2,40 @@ var $ = function(id) {return document.getElementById(id);};
 //helper variable for using document.getElementById easily
 //Funksjone som sorterer etter ID, eller annen info. Og hvor mange du vil se eller noe.
 
-function loadProfiles(){
-    let profiles = model.companies;
+
+function filterIncome() {
+
+}
+function loadCompanies() {
     const chosenWeeks = model.current.weeksToSum;
-    $("quickStats").innerHTML = ``;
-    for (let profile of profiles) {
-        const profileName = profile.name;
-        const industry = profile.industry;
-        //const votesObj = currentPoll !== null ? currentPoll.votes : {}; // setter voteObj til votes i currentPoll, med mindre det ikke er noen der
-        //const date = profile.income[0].date;
-        
-        //(profile.income != null ? profile.income[0].date : "unknown");
-        
-        //date == true ? (date = "Ingen dato") : (date = date);
-        const profileID = profile.id;
-        const averageIncome = calcAverage(chosenWeeks, model.income[profileID]);
+    document.getElementById("mainTable").innerHTML =``;
+    document.getElementById("mainTable").innerHTML = `
+    <tr>
+        <th id="butikkNavn">Butikknavn</th>
+        <th id="sisteUker">Gjennomsnittlig inntekt ${chosenWeeks} siste uker</th>
+        <th id="forReg">Forrige registrering</th>
+        <th id="bransje">Bransje</th>
+    </tr>`;
+    
 
-        // date ? date = date : date = null;
+    for (let company of model.companies) {
+        const filteredIncome = model.income.filter(entry => {
+            return entry.id === company.id;
+        });
 
-        $("quickStats").innerHTML +=`<div id="${profile.id}">
-        Butikknavn: ${profileName}<br>
-        Gjennomsnittlig inntekt siste ${chosenWeeks} uker: ${averageIncome}% <br>
-        Forrige registrering: ${null}! <br>
-        Bransje: ${industry} <br>
-        <button onclick="checkProfile(${profileID})">Vis profil</button> <br>
-        </div>
-        <div id="incomePercent">This is a test: ${averageIncome}%</div>
-        `;
+        const averageIncome = calcAverage(chosenWeeks, filteredIncome)
+        
+        document.getElementById("mainTable").innerHTML +=`
+                <tr id="outputTable">
+                    <td id="butikkNavn">${company.id}${company.name} <button onclick="checkProfile(${company.id})">Vis profil</button></td>
+                    <td id="sisteUker">${averageIncome}%</td>
+                    <td id="forReg">4 uker siden</td>
+                    <td id="bransje">${company.industry}</td>
+                </tr>`;
     }
-
+    
     function calcAverage(weeks,entries) {
         let sum = 0;
-    
         if (entries.length > 0) {
             for (let i = 0; i < weeks && i < entries.length; i++) {
                 sum += entries[i].percent;
@@ -44,6 +46,15 @@ function loadProfiles(){
         } 
         
     }};
+
+            // <div id="${profile.id}">
+        // Butikknavn: ${profileName}<br>
+        // Gjennomsnittlig inntekt siste ${chosenWeeks} uker: ${averageIncome}% <br>
+        // Forrige registrering: ${null}! <br>
+        // Bransje: ${industry} <br>
+        // <button onclick="checkProfile(${profileID})">Vis profil</button> <br>
+        // </div>
+        // <div id="incomePercent">This is a test: ${averageIncome}%</div>
 //Egen side med bedrift navn og info
 
 

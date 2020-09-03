@@ -2,7 +2,7 @@
 
 
 // Legger inn bedriftens stats.
-         $("quickStats").innerHTML +=`
+         $("mainTable").innerHTML +=`
          <div>
          Navn:${profiles[i].name.value} 
          Adresse: ${profiles[i].adress.value} 

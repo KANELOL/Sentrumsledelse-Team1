@@ -10,10 +10,11 @@ var $ = function(id) {return document.getElementById(id);};
 //View Funksjon med en liten dæsh controller.
 function newProfile() { // Lag ny butikk.
     const com = "model.inputs";
-    $("quickStats").innerHTML = `
+    $("mainTable").innerHTML = `
     Navn: <input id="inputName" type="name" oninput="${com}.name = this.value"/><br>
     Adresse: <input id="inputAddress" type="address" oninput="${com}.address = this.value"/><br>
     Industri: <input id="inputIndustry" type="text" oninput="${com}.industry = this.value"/><br>
+    Vekt: <input id="inputVekt" type="text"/><br>
 <button onclick="pushProfile()" style="font-size: 100%">push Profile</button>
 `
 }
