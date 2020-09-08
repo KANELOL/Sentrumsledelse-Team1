@@ -20,7 +20,7 @@ npm run build
 npm run lint
 ```
 
-### Vue UI/Vue CLI
+### Vue UI
 ```
 command prompt: vue ui
 ```
