@@ -22,7 +22,7 @@ npm run lint
 
 ### Vue UI
 ```
-command prompt: vue ui
+vue ui
 ```
 ### Vue CLI
 ```
