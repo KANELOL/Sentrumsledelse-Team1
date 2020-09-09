@@ -60,7 +60,7 @@ export default {
                 sort: [0,2,3],
                 pagination: true,
                 pageSize: 10
-
+                
             }
         }
     }

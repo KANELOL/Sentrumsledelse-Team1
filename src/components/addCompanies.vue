@@ -26,7 +26,7 @@ export default {
                 title: this.title,
             }
             // Send up to parent
-            this.$emit(company, newCompany);
+            this.$emit('company', newCompany);
         }
     }
 }
