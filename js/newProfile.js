@@ -15,8 +15,7 @@ function newProfile() { // Lag ny butikk.
     Adresse: <input id="inputAddress" type="address" oninput="${com}.address = this.value"/><br>
     Industri: <input id="inputIndustry" type="text" oninput="${com}.industry = this.value"/><br>
     Vekt: <input id="inputVekt" type="text"/><br>
-<button onclick="pushProfile()" style="font-size: 100%">push Profile</button>
-`
+<button onclick="pushProfile()" style="font-size: 100%">push Profile</button>`
 }
 //Controller Funksjon
 function pushProfile() {
@@ -29,7 +28,8 @@ function pushProfile() {
             id: model.inputs.id,
             entries: []
         })
-}
+        alert('Godkjent!');
+    }
 
     // const inputObj = model.inputs;
     // model.companies.push({

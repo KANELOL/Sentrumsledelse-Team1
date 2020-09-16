@@ -1,22 +1,21 @@
 var $ = function(id) {return document.getElementById(id);};
-//helper variable for using document.getElementById easily
-//Funksjone som sorterer etter ID, eller annen info. Og hvor mange du vil se eller noe.
 
 
 function filterIncome() {
-
+    
 }
 function loadCompanies() {
     const chosenWeeks = model.current.weeksToSum;
-    document.getElementById("mainTable").innerHTML =``;
-    document.getElementById("mainTable").innerHTML = `
+    $("mainTable").innerHTML = `
     <tr>
-        <th id="butikkNavn">Butikknavn</th>
-        <th id="sisteUker">Gjennomsnittlig inntekt ${chosenWeeks} siste uker</th>
-        <th id="forReg">Forrige registrering</th>
-        <th id="bransje">Bransje</th>
+        <th id="index">Index</th>
+        <th id="companyName" onclick="sorting(this.id)">Company Name</th>
+        <th id="lastWeeks">Gjennomsnittlig inntekt ${chosenWeeks} siste uker</th>
+        <th id="lastUpdate">Forrige registrering</th>
+        <th id="industry" onclick="sorting(this.id)">Bransje</th>
+        <th id="weight" onclick="sorting(this.id)">Vekt ↓</th>
+        <th>ViKtig</th>
     </tr>`;
-    
 
     for (let company of model.companies) {
         const filteredIncome = model.income.filter(entry => {
@@ -24,13 +23,16 @@ function loadCompanies() {
         });
 
         const averageIncome = calcAverage(chosenWeeks, filteredIncome)
-        
-        document.getElementById("mainTable").innerHTML +=`
+        $("mainTable").innerHTML +=`
                 <tr id="outputTable">
-                    <td id="butikkNavn">${company.id}${company.name} <button onclick="checkProfile(${company.id})">Vis profil</button></td>
-                    <td id="sisteUker">${averageIncome}%</td>
-                    <td id="forReg">4 uker siden</td>
-                    <td id="bransje">${company.industry}</td>
+                    <td id="tableIndex">${company.id + 1} <button onclick="upNdown('up');">&ShortUpArrow;</button>
+                    <button onclick="upNdown('down');">&ShortDownArrow;</button></td>
+                    <td>${company.name} </td>
+                    <td>${averageIncome}%</td>
+                    <td>4 uker siden</td>
+                    <td>${company.industry}</td>
+                    <td>${company.weight}</td>
+                    <td><button onclick="checkProfile(${company.id})">Vis/Endre/Leggtill profil</button></td>
                 </tr>`;
     }
     
@@ -47,23 +49,66 @@ function loadCompanies() {
         
     }};
 
-            // <div id="${profile.id}">
-        // Butikknavn: ${profileName}<br>
-        // Gjennomsnittlig inntekt siste ${chosenWeeks} uker: ${averageIncome}% <br>
-        // Forrige registrering: ${null}! <br>
-        // Bransje: ${industry} <br>
-        // <button onclick="checkProfile(${profileID})">Vis profil</button> <br>
-        // </div>
-        // <div id="incomePercent">This is a test: ${averageIncome}%</div>
-//Egen side med bedrift navn og info
+    function sorting(sortKey) {
+        model.companies.sort((a, b) => {
+            return b[sortKey] - a[sortKey];
+        })
+        
+        console.log(sortKey);
+        loadCompanies();
+        // sortCompany.sort((a, b) => {
+        //     return a.id - b.id;
+        // })
+        console.log(model.companies);
+    }
+    
 
+   
+            // function upNdown(direction)
+            // {
+            //     var rows = document.getElementById("table").rows,
+            //         parent = rows[index].parentNode;
+            //      if(direction === "up")
+            //      {
+            //          if(index > 1){
+            //             parent.insertBefore(rows[index],rows[index - 1]);
+            //             // when the row go up the index will be equal to index - 1
+            //             index--;
+            //         }
+            //      }
+                 
+            //      if(direction === "down")
+            //      {
+            //          if(index < rows.length -1){
+            //             parent.insertBefore(rows[index + 1],rows[index]);
+            //             // when the row go down the index will be equal to index + 1
+            //             index++;
+            //         }
+            //      }
+            // }
 
-
-// const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
-// arrAvg([20, 10, 5, 10]) -> 11.25
-// const arrSum = arr => arr.reduce((a,b) => a + b, 0) 
-// // arrSum = function(arr){
-//   return arr.reduce(function(a,b){
-//     return a + b
-//   }, 0);
-// }
+//             <html>
+// <body >
+//   <table border=5 bordercolor=red>
+//     <tr>
+//       <td>
+//         Fisrt Column of Outer Table
+//       </td>
+//       <td>
+//         <table border=5 bordercolor=green>
+//           <tr>
+//             <td>
+//               First row of Inner Table
+//             </td>
+//           </tr>
+//           <tr>
+//             <td>
+//               Second row of Inner Table
+//             </td>
+//           </tr>
+//         </table>
+//       </td>
+//   </tr>
+//   </table>
+// </body>
+// </html>

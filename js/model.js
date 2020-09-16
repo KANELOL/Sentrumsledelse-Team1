@@ -30,14 +30,35 @@ const model = {
         address: "Examplestreet 2",
         industry: "Electronics",
         id: 0000,
-        weight: "???",
+        weight: 2,
         logo: "some picture"},
         
         {name: "Another Business",
-        address: "Some Address",
+        address: "Some Gate",
         industry: "Food",
         id: 0001,
-        weight: "???",
+        weight: 3,
+        logo: "some picture"},
+        
+        {name: "Magiske Tepper AS",
+        address: "Some Address",
+        industry: "Tekstiler",
+        id: 0004,
+        weight: 65,
+        logo: "some picture"},
+        
+        {name: "Nesegreier",
+        address: "Somergata 14",
+        industry: "Food",
+        id: 0003,
+        weight: 1,
+        logo: "some picture"},
+        
+        {name: "Ablegoier",
+        address: "Breiflabbsen34",
+        industry: "Food",
+        id: 0002,
+        weight: 5,
         logo: "some picture"},
     ],
     income: [
@@ -49,7 +70,6 @@ const model = {
         {percent: 35, id: 0001, date: "2020-09-08"}
     ]
 }
-
 
 // example of a new profileTemplate:
 // var newProfile = new profileTemplate(name, address, industry, id, weight, logo);
