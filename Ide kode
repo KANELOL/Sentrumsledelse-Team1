@@ -15,3 +15,10 @@
         i++;
         break; //or continue; if you wanna end the while loop prematurely
     }
+
+    $("mainTable").innerHTML += 'Uke: '+ new Date(entry.date).getWeek() + ' Prosent vekst: '+ entry.percent+`% <button>Endre</button><br>`;
+
+        // for (let entry of filteredIncome) {
+    //     console.log("checking week: ", new Date(entry.date).getWeek());
+    //     // $("mainTable").innerHTML += 'Uke: '+ new Date(entry.date).getWeek() + ' Prosent vekst: '+ entry.percent+`% <button>Endre</button><br>`;
+    // }

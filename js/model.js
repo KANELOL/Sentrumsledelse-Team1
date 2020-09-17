@@ -22,7 +22,9 @@ const model = {
     inputs: {
         name: "",
         address: "",
-        industry: ""
+        weight: "",
+        industry: "",
+        id:""
     },
     // Modell For Bedrifter
     companies: [

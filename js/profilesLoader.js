@@ -5,7 +5,9 @@ function filterIncome() {
     
 }
 function loadCompanies() {
+    model.current.company = null;
     const chosenWeeks = model.current.weeksToSum;
+    $("header").innerHTML = `Oversikt`;
     $("mainTable").innerHTML = `
     <tr>
         <th id="index">Index</th>
@@ -21,7 +23,6 @@ function loadCompanies() {
         const filteredIncome = model.income.filter(entry => {
             return entry.id === company.id;
         });
-
         const averageIncome = calcAverage(chosenWeeks, filteredIncome)
         $("mainTable").innerHTML +=`
                 <tr id="outputTable">
