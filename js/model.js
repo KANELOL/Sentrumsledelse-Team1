@@ -67,9 +67,9 @@ const model = {
         {percent: 45, id: 0001, date: "2020-09-30"},
         {percent: 3, id: 0000, date: "2020-09-08"},
         {percent: 234, id: 0001, date: "2020-09-16"},
-        {percent: 13, id: 0000, date: "2020-09-01"},
-        {percent: 3, id: 0001, date: "2020-09-23"},
-        {percent: 35, id: 0001, date: "2020-09-08"}
+        {percent: 13, id: 0004, date: "2020-09-01"},
+        {percent: 3, id: 0003, date: "2020-09-23"},
+        {percent: 35, id: 0002, date: "2020-09-08"}
     ]
 }
 

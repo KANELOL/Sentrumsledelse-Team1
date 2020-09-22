@@ -1,4 +1,4 @@
-https://prod.liveshare.vsengsaas.visualstudio.com/join?83E75CAC7EC10FCB284CD794B3C319862523
+https://prod.liveshare.vsengsaas.visualstudio.com/join?1CDFE5055F3B46EC0E6ED8BB83924FB037AE
 Call this function onKeyUp event of TEXTBOX.
 
 function myFunction() {
@@ -38,3 +38,7 @@ var items = ['réservé', 'premier', 'communiqué', 'café', 'adieu', 'éclair']
 items.sort((a, b) =>
    a.localeCompare(b)
 );
+1- income id
+2- vekting i prosen.
+3- anbefaling til sortering av kode
+4-
