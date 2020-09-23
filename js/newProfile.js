@@ -1,4 +1,4 @@
-var $ = function(id) {return document.getElementById(id);};
+var $ = function(id) { return document.getElementById(id); };
 //helper variable for using document.getElementById easily
 
 //Lag in ny butikk.
@@ -19,30 +19,33 @@ function newProfile() { // Lag ny butikk.
 }
 //Controller Funksjon
 function pushProfile() {
-    model.inputs.id = model.companies.length;
+    model.inputs.newProfile.id = model.companies.length;
     let cloneInputs = (JSON.parse(JSON.stringify(model.inputs)));
     model.companies.push(cloneInputs);
 
-    model.income.push(
-        {
-            id: model.inputs.id,
-            entries: []
-        })
-        alert('Godkjent!');
-    }
+    model.income.push({
+        id: model.inputs.id,
+        entries: []
+    })
 
-    // const inputObj = model.inputs;
-    // model.companies.push({
-    
-    //     name: inputObj.name,
-    //     address: inputObj.address,
-    //     industry: inputObj.industry,
-    //     id: model.companies.length,
-    //     weight: "???",
-    //     logo: "some picture",
-    //     income: [],
-    // });
-    
+    // model.current.page = 'editProfile';
+    // updateView();
+    alert('Godkjent!');
+}
+
+
+// const inputObj = model.inputs;
+// model.companies.push({
+
+//     name: inputObj.name,
+//     address: inputObj.address,
+//     industry: inputObj.industry,
+//     id: model.companies.length,
+//     weight: "???",
+//     logo: "some picture",
+//     income: [],
+// });
+
 //     model.outputDiv.innerHTML = `Lag ny profil!
 //     <h1>${model.profileStorage[2]}</h1> <br>
 //     Name: <input/> <br>

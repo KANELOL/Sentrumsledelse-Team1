@@ -6,6 +6,10 @@ function filterIncome() {
 }
 
 function loadCompanies() {
+    let companies = model.companies;
+    if (model.current.sortKey) {
+        companies = sortFunction(model.companies);
+    }
     model.current.company = null;
     const chosenWeeks = model.current.weeksToSum;
     $("header").innerHTML = `Oversikt`;
@@ -29,8 +33,8 @@ function loadCompanies() {
              <table id="outputTable">   
         <tr>
                     <td>
-                    <input type="button" value="up" class="up">
-                    <input type="button" value="down" class="down" /></td>
+                    <input type="button" value="up" class="up" onclick="editSortOrder(${company.id,true})">
+                    <input type="button" value="down" class="down" onclick="editSortOrder(${company.id,false})" /></td>
                     </td>
                     
     
@@ -43,6 +47,17 @@ function loadCompanies() {
                     <td><button onclick="checkProfile(${company.id})">Vis/Endre/Leggtill profil</button></td>
                 </tr>`;
 
+    }
+
+    function editSortOrder(companyId, goUp) {
+        const company = model.companies.find(c => c.id == companyId);
+        const currentSortOrder = company.sortOrder;
+        const newSortOrder = company.sortOrder + (goUp ? -1 : 1);
+        const companyToSwapSortOrderWith = model.companies.find(c => c.sortOrder == newSortOrder);
+        if (companyToSwapSortOrderWith == null) return;
+        companyToSwapSortOrderWith.sortOrder = company.sortOrder;
+        company.sortOrder = newSortOrder;
+        // update view
     }
 
     function calcAverage(weeks, entries) {

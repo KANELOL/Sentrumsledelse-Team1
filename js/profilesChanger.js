@@ -4,6 +4,7 @@ function checkProfile(id) {
     const toDateWeek = "Null";
     const fromDateWeek = "Null";
     model.current.company = id;
+    model.inputs.income.id = id;
     const company = model.companies[id];
 
     $("header").innerHTML = `Name: ${company.name}`;
@@ -15,8 +16,8 @@ function checkProfile(id) {
         <br>Adress: ${company.address} 
         <br>Bransje: ${company.industry} 
         <br> Vekt: ${ company.weight } <br>
-        <button onclick = "editStore(${id})" > Rediger < /button>
-        <div><button onclick="getWishedWeeks()">Sorter Ønskede Uker</button>
+        <button onclick = "editStore(${id})"> Rediger<br><hr>
+        <button onclick="getWishedWeeks()">Sorter Ønskede Uker</button>
         
         ${drawIncomeTable(id)}
         
@@ -28,12 +29,13 @@ function checkProfile(id) {
 };
 
 // Bruker "vis Profil" sine datoer og oppdaterer modellen etter dette.
+//Common.js
 function getFromDate(id) {
     model.current.fromDate = new Date($("fromDate").value).getWeek();
     // console.log("getDateID: "+ id);
     checkProfile(id);
 }
-
+// Denne kan reise til common.js
 function getToDate(id) {
     model.current.toDate = new Date($("toDate").value).getWeek();
     // console.log("getDateID: "+ id);
@@ -60,18 +62,52 @@ https: //www.w3schools.com/js/js_date_methods.asp
 
         let weekNoFromDate = dateTxt => new Date(dateTxt).getWeek();
         let lastWeekWeekNumbers = lastWeeks.map(weekDate => weekNoFromDate(weekDate));
-        console.log(lastWeekWeekNumbers);
 
+        return lastWeekWeekNumbers.map(weekNr => `<tr>
+       <td>Uke: ${weekNr}</td>
+       <td>Income: ${rightIncome(weekNr, id) || 
+        `Fyll Inn:
+        <input value="0" onchange="model.inputs.income.percent=this.value" type="number"><button onclick="pushIncome(${weekNr}, ${id})">Save/Edit</button>`}</td></tr>`).join('<br/>');
+    }
+
+// Pushe id ukenr og prosent
+    function rightIncome(weekNr, id) {
         return model.income
-        .filter(singleIncome => lastWeekWeekNumbers.includes(weekNoFromDate(singleIncome.date)) &&
-            singleIncome.id == id)
-        .map(singleIncome => `
-        <tr>
-            <td>Uke: ${weekNoFromDate(singleIncome.date)}</td>
-            <td>Income goes here: ${singleIncome.percent}<button>Edit</button></td>
-            <td>Id: ${singleIncome.id}</td>
-        </tr>`)
-        .join('');
+            .filter(singleIncome => singleIncome.date == weekNr && singleIncome.id == model.current.company)
+            .map(singleIncome => `${singleIncome.percent}% <button onclick=deleteIncome(${singleIncome.date, singleIncome.id, id})>Delete</button>`)
+            .join('');
+    }
+    function deleteIncome(date, incomeId, id){
+       model.income.filter(income => date !== income.date && incomeId !== income.id)
+      checkProfile(id); 
+    }
+    function pushIncome(weekNr, id) {
+        model.inputs.income.date = weekNr;
+        weekExist = model.income.filter(week => week.date == weekNr && week.id == id);
+        model.income.filter(week => week.date == weekNr && week.id == id);
+        console.log("eksisterer? "+weekExist);
+        let cloneInputs = (JSON.parse(JSON.stringify(model.inputs.income)));
+        model.income.push(cloneInputs);
+        model.inputs.income.id = '';
+        model.inputs.income.date = '';
+        model.inputs.income.percent = '';
+
+        checkProfile(id);
+        // model.inputs.income.date = '';
+        // model.inputs.income.percent = '';
+
+    }
+    //     return model.income
+    //     .filter(singleIncome => lastWeekWeekNumbers.includes(weekNoFromDate(singleIncome.date)) &&
+    //         singleIncome.id == id)
+    //     .map(singleIncome => `
+    //     <tr>
+    //         <td>Uke: ${weekNoFromDate(singleIncome.date)}</td>
+    //         <td>Income goes here: ${singleIncome.percent}<button>Edit</button></td>
+    //         <td>Id: ${singleIncome.id}</td>
+    //     </tr>`)
+    //     .join('');
+    // }
         
         // lastWeeks.forEach(date => {
         //     const outputWeek = new Date(date).getWeek()
@@ -96,7 +132,6 @@ https: //www.w3schools.com/js/js_date_methods.asp
         // console.log(`${i} Dager Siden: `+ ourDate);
         // i +=7;
         // }
-    }
 // For Looop
 // function drawIncomeTable2(id) {
 //     let today = new Date();
