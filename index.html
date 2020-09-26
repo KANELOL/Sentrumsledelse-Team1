@@ -7,10 +7,14 @@
     <script defer src="js/common.js"></script>
     <script defer src="js/model.js"></script>
     <script defer src="js/controller.js"></script>
-    <script defer src="js/profilesLoader.js" onload="loadCompanies()"></script>
-    <script defer src="js/profilesChanger.js"></script>
-    <script defer src="js/view.js"></script>
-    <script defer src="js/newProfile.js"></script>
+    <script defer src="js/profilesLoaderController.js"></script>
+    <script defer src="js/profilesLoaderView.js" onload="loadCompanies()"></script>
+    <script defer src="js/profilesChangerController.js"></script>
+    <script defer src="js/profilesChangerView.js"></script>
+    <!-- <script defer src="js/view.js"></script> -->
+    <script defer src="js/newProfileController.js"></script>
+    <script defer src="js/newProfileView.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <link rel="stylesheet" href="noe.css">
     <title>Overviewpage</title>
 
@@ -21,17 +25,32 @@
     <h1 id="header">Sentrumsledelse</h1>
     <div id="mainContent">
         <table id="mainTable"></table>
+        <button onclick="loadCompanies()">Oversikt</button>
+        <button onclick="newProfile()">Lag Ny Profil</button></br>
+        <button onclick="changePage('login')">Logg ut</button><br>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+            </div>
     </div>
-
-
-
-
-    <button onclick="loadCompanies()">Oversikt</button>
-    <button onclick="newProfile()">Lag Ny Profil</button></br>
-    <button onclick="changePage('login')">Logg ut</button><br>
-
-
-
+    
+    
 </body>
+<style>
+.chart-container {
+    width: 850px;
+    height:600px;
+}
+.feilmelding {
+    color: red;
+    background-color: rgba(251, 255, 11, 0.459);
+    border: 1px solid #000000;
+    /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+}
+.godkjent {
+    color: green;
+    background-color: rgba(251, 255, 11, 0.459);
+    border: 1px solid #000000;
+}
+</style>
 
 </html>

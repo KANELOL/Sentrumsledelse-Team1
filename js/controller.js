@@ -1,6 +1,3 @@
-//helper variable for using document.getElementById easily
-var $ = function(id) {return document.getElementById(id);};
-
 //Week Number Finder ellerno
 Date.prototype.getWeek = function () {
     //https://stackoverflow.com/questions/9045868/javascript-date-getweek

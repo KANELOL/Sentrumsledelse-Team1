@@ -96,3 +96,18 @@ function drawIncomeTable(id) {
 // if (incomeKey.includes(ukeKey.uke))
 // return income
 // .filter(x => x.id == week)
+
+let weeks = [{uke:1}, {uke:2}, {uke:3}, {uke:4}, {uke:5},];
+let income = [{percent:1, uke:1}, {percent:3, uke:4}, {percent:2, uke:3}];
+let combined = [{uke:1, percent:1}, {uke:2, percent:null},
+             {uke:3, percent:2}, {uke:4, percent:3}, {uke:5 , percent:null},];
+
+//Reduce Funksjon
+let income = [{percent:1, uke:1}, {percent:3, uke:4}, {percent:2, uke:3}];
+let weeks = [1,2,3,4,5];
+weeks.reduce(addWeekToObj,{});
+
+function addWeekToObj(obj, week) {
+    obj[week] = income.find(obj=>obj.uke===week)?.percent || null;
+    return obj;
+}

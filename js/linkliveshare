@@ -56,3 +56,313 @@ items.sort((a, b) =>
 2- vekting i prosent.
 3- anbefaling til sortering av kode.
 4- Spørre Terje om arbeidsfordeling og motivasjon.
+
+//const outputDiv = document.getElementById(id);
+
+//https://meet.google.com/gpm-sfgd-sxt
+
+//const model ={
+    //curent: [{navn:'',adresse:'', huset:''},],
+// navnInput:'', adresseInput:'', husetInput:'',etc
+//income:["id1","id2","id3",]
+//income:["id1","id1:uke39","id3",]
+
+//function push liste(){
+   // model.curent.push({ 
+//        navn:curent.navnInput,
+//        adresse: andresseInput,
+//    }) 
+// }
+// if (model.navnInput != ''&&
+// model.adresseInput !=''&&)
+// updateview();
+
+// example of a new profileTemplate:
+// var newProfile = new profileTemplate(name, address, industry, id, weight, logo);
+//or
+// var newProfileArray = [
+//     new profileTemplate(name, address, industry, id, weight, logo);
+//     new profileTemplate(name, address, industry, id, weight, logo);
+//     new profileTemplate(name, address, industry, id, weight, logo);
+// ];
+
+
+// complete history of percentage increase/decrease per week goes here, somehow
+
+
+
+// class profileTemplate {
+//     constructor (name, address)
+//     {
+//         this.name = name;
+//         this.address = address;
+//     //     this.industry = industry;
+//     //     this.id = id;
+//     //     this.weight = weight;
+//     //     this.logo = logo;
+//     //     this.income = income;
+//     }
+// },
+
+// exempel
+
+
+// Jørn notat
+//
+//Lag in ny butikk.
+//Først få opp side med inputs. Navn, Adresse, Industry.
+//Kunne legge in informasjon.
+//Pushe til profileStorage
+//Bruke type="date" til å sortere etter dato?
+ // model.current.page = 'editProfile';
+ // const inputObj = model.inputs;
+// model.companies.push({
+
+//     name: inputObj.name,
+//     address: inputObj.address,
+//     industry: inputObj.industry,
+//     id: model.companies.length,
+//     weight: "???",
+//     logo: "some picture",
+//     income: [],
+// });
+
+//     model.outputDiv.innerHTML = `Lag ny profil!
+//     <h1>${model.profileStorage[2]}</h1> <br>
+//     Name: <input/> <br>
+//     Adress: <input/> <br>
+//     Industry: <input/> <br>
+//     Weight: <input/>`; 
+// }
+
+
+// 
+// `wow her er variablen: ${outputDiv)}`
+
+// sortCompany.sort((a, b) => {
+    //     return a.id - b.id;
+    // })
+
+    // function upNdown(direction)
+// {
+//     var rows = document.getElementById("table").rows,
+//         parent = rows[index].parentNode;
+//      if(direction === "up")
+//      {
+//          if(index > 1){
+//             parent.insertBefore(rows[index],rows[index - 1]);
+//             // when the row go up the index will be equal to index - 1
+//             index--;
+//         }
+//      }
+
+//      if(direction === "down")
+//      {
+//          if(index < rows.length -1){
+//             parent.insertBefore(rows[index + 1],rows[index]);
+//             // when the row go down the index will be equal to index + 1
+//             index++;
+//         }
+//      }
+// }
+
+//             <html>
+// <body >
+//   <table border=5 bordercolor=red>
+//     <tr>
+//       <td>
+//         Fisrt Column of Outer Table
+//       </td>
+//       <td>
+//         <table border=5 bordercolor=green>
+//           <tr>
+//             <td>
+//               First row of Inner Table
+//             </td>
+//           </tr>
+//           <tr>
+//             <td>
+//               Second row of Inner Table
+//             </td>
+//           </tr>
+//         </table>
+//       </td>
+//   </tr>
+//   </table>
+// </body>
+// </html>
+    //     return model.income
+    //     .filter(singleIncome => lastWeekWeekNumbers.includes(weekNoFromDate(singleIncome.date)) &&
+    //         singleIncome.id == id)
+    //     .map(singleIncome => `
+    //     <tr>
+    //         <td>Uke: ${weekNoFromDate(singleIncome.date)}</td>
+    //         <td>Income goes here: ${singleIncome.percent}<button>Edit</button></td>
+    //         <td>Id: ${singleIncome.id}</td>
+    //     </tr>`)
+    //     .join('');
+    // }
+        
+        // lastWeeks.forEach(date => {
+        //     const outputWeek = new Date(date).getWeek()
+        //     const filterDates = filteredIncome.filter(entry => {
+        //         const outputIncome = new Date(entry.date).getWeek();
+        //         return outputIncome == outputWeek
+        //     });
+        //     console.log(filterDates);
+        //     $("mainTable").innerHTML += `
+        // <tr>
+        //     <td>Uke: ${outputWeek}</td>
+        //     <td>Income goes here: ${filterDates[0].percent}<button>Edit</button></td>
+        // </tr>`
+        // });
+        // var i = 0;
+        // while (i <=28) {
+        // var ourDate = new Date();
+        // var pastDate = ourDate.getDate() - i;
+        // ourDate.setDate(pastDate);
+        // weekNr = ourDate.getWeek();
+        // $('incomeTable').innerHTML += `Week: ${weekNr}`;
+        // console.log(`${i} Dager Siden: `+ ourDate);
+        // i +=7;
+        // }
+// For Looop
+// function drawIncomeTable2(id) {
+//     let today = new Date();
+//     // console.log(new Date(today).getWeek());
+
+//     // .toISOString().slice(0, 10);
+
+//     const weeksToShow = 5;
+//     const lastWeeks = [];
+//     for (let i = 0; i < weeksToShow; i++) {
+//         let cloneInputs = (JSON.parse(JSON.stringify(today)));
+//         lastWeeks.push(cloneInputs.slice(0, 10));
+//         today.setDate(today.getDate() - 7);
+//         console.log("lastweek " + lastWeeks);
+//     }
+//     // console.log(lastWeeks);
+//     // lastWeeks[i].getWeek();
+
+//     let weekNoFromDate = dateTxt => new Date(dateTxt).getWeek();
+
+//     let html = '';
+//     let lastWeekWeekNumbers = [];
+//     for (let weekDate of lastWeeks) {
+//         lastWeekWeekNumbers.push(weekNoFromDate(weekDate));
+//     }
+//     for (let singleIncome of model.income) {
+//         if (!lastWeekWeekNumbers.includes(weekNoFromDate(singleIncome.date)) &&
+//             singleIncome.id != id) continue;
+//         html += `
+//         <tr>
+//             <td>Uke: ${weekNoFromDate(singleIncome.date)}</td>
+//             <td>Income goes here: ${singleIncome.percent}<button>Edit</button></td>
+//         </tr>`;
+//     }
+//     return html;
+// }
+// const earlier = new Date(2019, 0, 26)
+// const later = new Date(2019, 0, 27)
+// new Date().toISOString().slice(0, 10);
+// //Get today's date using the JavaScript Date object.
+// var ourDate = new Date();
+
+// //Change it so that it is 7 days in the past.
+// var pastDate = ourDate.getDate() - 7;
+// ourDate.setDate(pastDate);
+
+// //Log the date to our web console.
+// console.log(ourDate);
+
+// console.log(earlier < later) // true
+
+// {name: "Super Store 300",
+//         address: "Examplestreet 2",
+//         industry: "Electronics",
+//         id: 0000,
+//         weight: 0,
+//         logo: "some picture"},
+
+// name = (JSON.parse(JSON.stringify(model.inputs.name)));
+//     company.address = (JSON.parse(JSON.stringify(model.inputs.address)));
+//     company.industry = (JSON.parse(JSON.stringify(model.inputs.industry)));
+//     company.weight = (JSON.parse(JSON.stringify(model.inputs.weight)));
+
+// if (Number(x.innerHTML) > Number(y.innerHTML)) {
+//     shouldSwitch = true;
+//     break;
+//   }
+// function BubbleSort(unsortedArray) {
+// 	let length = unsortedArray.length;
+
+// 	for (let i = 0; i < length; i++)
+// 	{
+// 		let notSwap = true;
+
+// 		for (let j = 0; j < length - 1; j++)
+// 		{
+// 			if (unsortedArray[j] > unsortedArray[j + 1])
+// 			{
+// 				let temp = unsortedArray[j];
+// 				unsortedArray[j] = unsortedArray[j + 1];
+// 				unsortedArray[j + 1] = temp;
+
+// 				notSwap = false;
+// 			}
+// 		}
+
+// 		if (notSwap)
+// 		{
+// 			break;
+// 		}
+// 	}
+// 	return unsortedArray;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $('mainTable').innerHTML =` 
+//     Butikknavn: ${currentProfile.name}<br>
+//     Gjennomsnittlig inntekt siste ${choosenWeeks} uker: ${averageIncome}% <br>
+//     Forrige registrering: ${date}! <br>
+//     Bransje: ${currentProfile.industry} <br>
+//     <button onclick="bingBang(${profile.id})" id="${profile.id}">Endre</button> <br>
+//     `;
+
+//Kan bruke samme side som newProfilem
+
+// en filter Funksjon some ble laget 02/09/2020
+
+// })
+
+// function editPoll(id) {
+//     if (id !== null){
+//         console.log("Har id");
+//     model.app.currentPage = "editPoll";
+//      model.app.currentPoll = id;
+//      model.inputs.createPoll.options = model.polls[id].options
+//     model.inputs.createPoll.question = model.polls[id].question
+//      updateView();
+// } else{
+//     console.log("Ny Poll");
+//     model.app.currentPage ="createPoll";
+//     model.app.currentPoll = null;
+//     model.inputs.createPoll.newAlternative = '';
+//             model.inputs.createPoll.question= '';
+//             model.inputs.createPoll.options= [];
+//             model.inputs.createPoll.usersCanAddAlternatives= true;
+//             updateView();
+
+//         }
+// }

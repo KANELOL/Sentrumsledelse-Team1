@@ -1,18 +1,20 @@
-var $ = function(id) {return document.getElementById(id);};
-// helper variable for using document.getElementById easily
+// function changePage(page) {
+//     const page = model.current.page;
+// if (page == newProfile) {
+//     newProfile();
+// }
+// if (page == profilesLoaderView) {
+//     loadCompanies();
+// }
+// }
 
-function changePage() {
-    const page = model.current.page;
-    if (page === 'login') {
-        window.location.href = "login.html";
-    }
-    else if (page === 'index') {
-        window.location.href = "index.html";
-    }
-}
 
-//inntekt
-//navn
-//adresse  storeInfo = 3+ting
-//getElement('oppdaterside') = storeInfo
+
+    //     if (page === 'login') {
+//         window.location.href = "login.html";
+//     }
+//     else if (page === 'index') {
+//         window.location.href = "index.html";
+//     }
+// }
 
